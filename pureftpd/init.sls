@@ -6,10 +6,12 @@ pureftpd_install:
   service.running:
     - name: {{ pureftpd.service }}
     - enable: True
-    - reload: True
+    - reload: False
 
 pureftpd_config:
   file.managed:
   - name: /etc/pure-ftpd/pure-ftpd.conf
   - source: salt://pureftpd/templates/tmp.tmpl
   - template: jinja
+  - listen_in:
+    - service: {{ pureftpd.service }}
