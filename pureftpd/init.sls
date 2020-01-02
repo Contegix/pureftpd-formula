@@ -13,3 +13,5 @@ pureftpd_config:
   - name: /etc/pure-ftpd/pure-ftpd.conf
   - source: salt://pureftpd/templates/tmp.tmpl
   - template: jinja
+  - listen_in:
+    - service: {{ pureftpd.service }}
