@@ -6,7 +6,7 @@ pureftpd_install:
   service.running:
     - name: {{ pureftpd.service }}
     - enable: True
-    - reload: True
+    - reload: False
 
 pureftpd_config:
   file.managed:
